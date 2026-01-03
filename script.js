@@ -46,19 +46,18 @@ function setDigit(digitEl, number) {
   });
 }
 
-// Get current time as array of 6 digits
+// Get current time as array of 6 digits (12-hour format)
 function getTimeDigits() {
   const now = new Date();
-  const hours = now.getHours();
+  let hours = now.getHours() % 12;
+  if (hours === 0) hours = 12; // midnight/noon = 12, not 0
   const minutes = now.getMinutes();
   const seconds = now.getSeconds();
   
-  // Pad each to 2 digits and combine: "093045"
   const timeStr = [hours, minutes, seconds]
     .map(n => String(n).padStart(2, '0'))
     .join('');
   
-  // Split into individual digits: [0,9,3,0,4,5]
   return timeStr.split('').map(Number);
 }
 
