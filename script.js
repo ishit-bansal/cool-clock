@@ -87,3 +87,8 @@ function updateTime() {
 
 updateTime();
 setInterval(updateTime, 1000);
+
+// Theme toggle
+document.getElementById('themeToggle').onclick = () => {
+  document.body.classList.toggle('dark');
+};
