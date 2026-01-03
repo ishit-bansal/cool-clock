@@ -4,7 +4,9 @@ I found this idea in hyperplexed's video and wanted to challenge myself to build
 
 ## What This Project Is
 
-This is a creative digital clock that displays the current time using digits made entirely out of mini analog clocks. Instead of traditional digital segments or pixels, each number (0-9) is formed by a 6×4 grid of 24 tiny analog clocks, where each clock's hands are positioned to create the visual shape of the digit.
+This is a creative digital clock that displays the current time using digits made entirely out of mini analog clocks. Instead of traditional digital segments or pixels, each number (0-9) is formed by a 6×4 grid of 24 tiny analog clocks, where each clock's hands are positioned to create the visual shape of the digit. 
+
+**[Live Site](https://cool-clock-seven.vercel.app)**
 
 ## How It Works
 
