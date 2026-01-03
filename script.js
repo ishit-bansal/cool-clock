@@ -9,15 +9,14 @@ const charMap = {
   ' ': [135, 135]    // blank/neutral
 };
 
-// Define digit 0 as a pattern (6 rows x 4 columns = 24 symbols)
-const digit0 = [
-  '╔', '═', '═', '╗',
-  '║', '╔', '╗', '║',
-  '║', '║', '║', '║',
-  '║', '║', '║', '║',
-  '║', '╚', '╝', '║',
-  '╚', '═', '═', '╝'
-];
+// All digit patterns 0-9
+const digits = {
+  0: ['╔','═','═','╗','║','╔','╗','║','║','║','║','║','║','║','║','║','║','╚','╝','║','╚','═','═','╝'],
+  1: ['╔','═','╗',' ','╚','╗','║',' ',' ','║','║',' ',' ','║','║',' ','╔','╝','╚','╗','╚','═','═','╝'],
+  2: ['╔','═','═','╗','╚','═','╗','║','╔','═','╝','║','║','╔','═','╝','║','╚','═','╗','╚','═','═','╝'],
+  3: ['╔','═','═','╗','╚','═','╗','║','╔','═','╝','║','╚','═','╗','║','╔','═','╝','║','╚','═','═','╝'],
+  4: ['╔','╗','╔','╗','║','║','║','║','║','╚','╝','║','╚','═','╗','║',' ',' ','║','║',' ',' ','╚','╝']
+};
 
 // Create the grid
 const grid = document.getElementById('grid');
@@ -29,8 +28,9 @@ for (let i = 0; i < 24; i++) {
   grid.appendChild(clock);
 }
 
-// Apply digit 0 pattern to the grid
-function applyPattern(pattern) {
+// Apply a digit pattern to the grid
+function showDigit(digit) {
+  const pattern = digits[digit];
   const clocks = document.querySelectorAll('.clock');
   clocks.forEach((clock, i) => {
     const [a1, a2] = charMap[pattern[i]];
@@ -40,4 +40,5 @@ function applyPattern(pattern) {
   });
 }
 
-applyPattern(digit0);
+// Show digit 4 to test
+showDigit(4);
