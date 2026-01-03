@@ -1,6 +1,12 @@
-// Get the clock hands
-const hands = document.querySelectorAll('.hand');
+// Create a grid of 24 clocks (6 rows x 4 columns)
+const grid = document.getElementById('grid');
 
-// Set different angles for each hand
-hands[0].style.transform = 'rotate(45deg)';
-hands[1].style.transform = 'rotate(135deg)';
+for (let i = 0; i < 24; i++) {
+  const clock = document.createElement('div');
+  clock.className = 'clock';
+  
+  // Add two hands to each clock
+  clock.innerHTML = '<div class="hand"></div><div class="hand"></div>';
+  
+  grid.appendChild(clock);
+}

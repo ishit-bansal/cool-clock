@@ -13,20 +13,27 @@ body {
   background: #f0f0f0;
 }
 
-/* Make it circular! */
+/* Grid of clocks - 4 columns, 6 rows */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+/* Each mini clock */
 .clock {
-  width: 100px;
-  height: 100px;
+  width: 40px;
+  height: 40px;
   background: white;
-  border: 2px solid black;
+  border: 1px solid #ccc;
   border-radius: 50%;
   position: relative;
 }
 
 /* Clock hands */
 .hand {
-  width: 50px;
-  height: 4px;
+  width: 18px;
+  height: 2px;
   background: black;
   position: absolute;
   top: 50%;
