@@ -1,12 +1,18 @@
 /* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* CSS Variables for theming */
 body {
+  --bg: #e0e5ec;
+  --shadow-dark: #b8bec7;
+  --shadow-light: #ffffff;
+  --hand-color: #2d3436;
+  
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #e0e5ec;
+  background: var(--bg);
 }
 
 .display { display: flex; gap: 2vw; }
@@ -18,22 +24,21 @@ body {
   gap: 0.3vw;
 }
 
-/* Responsive neumorphic clocks - scale with viewport */
 .clock {
   width: 3vw;
   height: 3vw;
-  background: #e0e5ec;
+  background: var(--bg);
   border-radius: 50%;
   position: relative;
   box-shadow: 
-    0.4vw 0.4vw 0.8vw #b8bec7,
-    -0.4vw -0.4vw 0.8vw #ffffff;
+    0.4vw 0.4vw 0.8vw var(--shadow-dark),
+    -0.4vw -0.4vw 0.8vw var(--shadow-light);
 }
 
 .hand {
   width: 1.1vw;
   height: 0.15vw;
-  background: #2d3436;
+  background: var(--hand-color);
   position: absolute;
   top: 50%;
   left: 50%;
