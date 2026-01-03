@@ -50,14 +50,16 @@ body.dark {
 
 /* Clock hands */
 .hand {
+  --h: 0.15vw;
+  --w: 47%;  /* hand length as % of clock - adjust this to change length */
   position: absolute;
-  top: 50%;
+  top: calc(50% - var(--h) / 2);
   left: 50%;
-  width: 1.1vw;
-  height: 0.15vw;
+  width: var(--w);
+  height: var(--h);
   background: var(--hand);
-  transform-origin: left center;
-  border-radius: 0.1vw;
+  transform-origin: 0% 50%;
+  border-radius: 9999px;  /* rounded ends - change to 0 for square ends */
   transition: transform 0.5s, background 0.4s;
 }
 
