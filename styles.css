@@ -1,52 +1,38 @@
-/* Basic reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f0f0f0;
+  background: #e0e5ec;
 }
 
-/* Container for all digits */
-.display {
-  display: flex;
-  gap: 30px;
-}
-
-/* Group digits in pairs (HH, MM, SS) */
-.digit-pair {
-  display: flex;
-  gap: 8px;
-}
-
-/* Grid for a single digit */
+.display { display: flex; gap: 30px; }
+.digit-pair { display: flex; gap: 8px; }
 .digit {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 5px;
 }
 
-/* Each mini clock */
+/* Neumorphic mini clock */
 .clock {
   width: 30px;
   height: 30px;
-  background: white;
-  border: 1px solid #ccc;
+  background: #e0e5ec;
   border-radius: 50%;
   position: relative;
+  box-shadow: 
+    4px 4px 8px #b8bec7,
+    -4px -4px 8px #ffffff;
 }
 
-/* Clock hands */
 .hand {
   width: 12px;
   height: 2px;
-  background: black;
+  background: #2d3436;
   position: absolute;
   top: 50%;
   left: 50%;
