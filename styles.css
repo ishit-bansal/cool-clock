@@ -9,33 +9,35 @@ body {
   background: #e0e5ec;
 }
 
-.display { display: flex; gap: 30px; }
-.digit-pair { display: flex; gap: 8px; }
+.display { display: flex; gap: 2vw; }
+.digit-pair { display: flex; gap: 0.5vw; }
+
 .digit {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
+  gap: 0.3vw;
 }
 
-/* Neumorphic mini clock */
+/* Responsive neumorphic clocks - scale with viewport */
 .clock {
-  width: 30px;
-  height: 30px;
+  width: 3vw;
+  height: 3vw;
   background: #e0e5ec;
   border-radius: 50%;
   position: relative;
   box-shadow: 
-    4px 4px 8px #b8bec7,
-    -4px -4px 8px #ffffff;
+    0.4vw 0.4vw 0.8vw #b8bec7,
+    -0.4vw -0.4vw 0.8vw #ffffff;
 }
 
 .hand {
-  width: 12px;
-  height: 2px;
+  width: 1.1vw;
+  height: 0.15vw;
   background: #2d3436;
   position: absolute;
   top: 50%;
   left: 50%;
   transform-origin: left center;
+  border-radius: 0.1vw;
   transition: transform 0.5s ease;
 }
