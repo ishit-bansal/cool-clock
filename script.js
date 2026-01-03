@@ -1,15 +1,10 @@
 // Symbol to angle mapping
 const charMap = {
-  '╔': [90, 0],      // corner: down + right
-  '╗': [90, 180],    // corner: down + left
-  '╚': [-90, 0],     // corner: up + right
-  '╝': [-90, 180],   // corner: up + left
-  '═': [0, 180],     // horizontal line
-  '║': [-90, 90],    // vertical line
-  ' ': [135, 135]    // blank/neutral
+  '╔': [90, 0], '╗': [90, 180], '╚': [-90, 0], '╝': [-90, 180],
+  '═': [0, 180], '║': [-90, 90], ' ': [135, 135]
 };
 
-// All digit patterns 0-9
+// All digit patterns
 const digits = {
   0: ['╔','═','═','╗','║','╔','╗','║','║','║','║','║','║','║','║','║','║','╚','╝','║','╚','═','═','╝'],
   1: ['╔','═','╗',' ','╚','╗','║',' ',' ','║','║',' ',' ','║','║',' ','╔','╝','╚','╗','╚','═','═','╝'],
@@ -23,20 +18,26 @@ const digits = {
   9: ['╔','═','═','╗','║','╔','╗','║','║','╚','╝','║','╚','═','╝','║','╔','═','╝','║','╚','═','═','╝']
 };
 
-// Create the grid
-const grid = document.getElementById('grid');
-
-for (let i = 0; i < 24; i++) {
-  const clock = document.createElement('div');
-  clock.className = 'clock';
-  clock.innerHTML = '<div class="hand"></div><div class="hand"></div>';
-  grid.appendChild(clock);
+// Create a single digit grid with 24 mini clocks
+function createDigit() {
+  const digitEl = document.createElement('div');
+  digitEl.className = 'digit';
+  
+  for (let i = 0; i < 24; i++) {
+    const clock = document.createElement('div');
+    clock.className = 'clock';
+    clock.innerHTML = '<div class="hand"></div><div class="hand"></div>';
+    digitEl.appendChild(clock);
+  }
+  
+  return digitEl;
 }
 
-// Apply a digit pattern to the grid
-function showDigit(digit) {
-  const pattern = digits[digit];
-  const clocks = document.querySelectorAll('.clock');
+// Set a digit element to display a number
+function setDigit(digitEl, number) {
+  const pattern = digits[number];
+  const clocks = digitEl.querySelectorAll('.clock');
+  
   clocks.forEach((clock, i) => {
     const [a1, a2] = charMap[pattern[i]];
     const hands = clock.querySelectorAll('.hand');
@@ -45,4 +46,20 @@ function showDigit(digit) {
   });
 }
 
-showDigit(8);
+// Create 6 digit displays
+const display = document.getElementById('display');
+const digitElements = [];
+
+for (let i = 0; i < 6; i++) {
+  const d = createDigit();
+  display.appendChild(d);
+  digitElements.push(d);
+}
+
+// Test: display "123456"
+setDigit(digitElements[0], 1);
+setDigit(digitElements[1], 2);
+setDigit(digitElements[2], 3);
+setDigit(digitElements[3], 4);
+setDigit(digitElements[4], 5);
+setDigit(digitElements[5], 6);
