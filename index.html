@@ -7,7 +7,25 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <button id="themeToggle">Toggle Theme</button>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <!-- Sun circle -->
+      <circle class="sun" cx="12" cy="12" r="5" />
+      <!-- Sun rays -->
+      <g class="rays">
+        <line x1="12" y1="1" x2="12" y2="4" />
+        <line x1="12" y1="20" x2="12" y2="23" />
+        <line x1="1" y1="12" x2="4" y2="12" />
+        <line x1="20" y1="12" x2="23" y2="12" />
+        <line x1="4.2" y1="4.2" x2="6.3" y2="6.3" />
+        <line x1="17.7" y1="17.7" x2="19.8" y2="19.8" />
+        <line x1="4.2" y1="19.8" x2="6.3" y2="17.7" />
+        <line x1="17.7" y1="6.3" x2="19.8" y2="4.2" />
+      </g>
+      <!-- Moon mask circle -->
+      <circle class="moon-mask" cx="18" cy="6" r="5" />
+    </svg>
+  </button>
   <div class="display" id="display"></div>
   <script src="script.js"></script>
 </body>
