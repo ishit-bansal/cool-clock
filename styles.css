@@ -57,8 +57,8 @@ body.dark {
   transition: transform 0.5s ease, background 0.4s;
 }
 
-/* Theme toggle button - neumorphic style */
-#themeToggle {
+/* Theme toggle button */
+.theme-toggle {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -69,13 +69,37 @@ body.dark {
   border-radius: 50%;
   cursor: pointer;
   color: var(--hand-color);
-  font-size: 20px;
   box-shadow: 
     4px 4px 8px var(--shadow-dark),
     -4px -4px 8px var(--shadow-light);
   transition: background 0.4s, box-shadow 0.4s, color 0.4s;
 }
 
-#themeToggle:hover {
-  transform: scale(1.05);
+.theme-toggle:hover { transform: scale(1.05); }
+.theme-toggle svg { display: block; margin: auto; }
+
+/* Sun rays styling */
+.theme-toggle .rays {
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: opacity 0.4s, transform 0.4s;
+  transform-origin: center;
 }
+
+/* Moon mask - covers part of sun to create crescent */
+.theme-toggle .moon-mask {
+  fill: var(--bg);
+  transform: translate(6px, -6px);
+  transition: transform 0.4s, fill 0.4s;
+}
+
+.theme-toggle .sun {
+  transition: transform 0.4s;
+  transform-origin: center;
+}
+
+/* Dark mode: transform sun into moon */
+body.dark .theme-toggle .sun { transform: scale(1.2); }
+body.dark .theme-toggle .rays { opacity: 0; transform: rotate(-30deg); }
+body.dark .theme-toggle .moon-mask { transform: translate(-3px, 0); }
