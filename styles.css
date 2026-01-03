@@ -21,7 +21,7 @@ body {
   position: relative;
 }
 
-/* Clock hand */
+/* Clock hand - rotates from left edge */
 .hand {
   width: 50px;
   height: 4px;
@@ -29,4 +29,6 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
+  transform-origin: left center;
+  transform: rotate(45deg);
 }
