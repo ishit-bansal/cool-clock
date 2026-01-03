@@ -18,7 +18,7 @@ const digits = {
   9: ['╔','═','═','╗','║','╔','╗','║','║','╚','╝','║','╚','═','╝','║','╔','═','╝','║','╚','═','═','╝']
 };
 
-// Create a single digit grid with 24 mini clocks
+// Create a single digit grid
 function createDigit() {
   const digitEl = document.createElement('div');
   digitEl.className = 'digit';
@@ -46,6 +46,22 @@ function setDigit(digitEl, number) {
   });
 }
 
+// Get current time as array of 6 digits
+function getTimeDigits() {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+  
+  // Pad each to 2 digits and combine: "093045"
+  const timeStr = [hours, minutes, seconds]
+    .map(n => String(n).padStart(2, '0'))
+    .join('');
+  
+  // Split into individual digits: [0,9,3,0,4,5]
+  return timeStr.split('').map(Number);
+}
+
 // Create 6 digit displays
 const display = document.getElementById('display');
 const digitElements = [];
@@ -56,10 +72,13 @@ for (let i = 0; i < 6; i++) {
   digitElements.push(d);
 }
 
-// Test: display "123456"
-setDigit(digitElements[0], 1);
-setDigit(digitElements[1], 2);
-setDigit(digitElements[2], 3);
-setDigit(digitElements[3], 4);
-setDigit(digitElements[4], 5);
-setDigit(digitElements[5], 6);
+// Update the display with current time
+function updateTime() {
+  const timeDigits = getTimeDigits();
+  timeDigits.forEach((digit, i) => {
+    setDigit(digitElements[i], digit);
+  });
+}
+
+// Initial update
+updateTime();
