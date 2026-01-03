@@ -80,5 +80,6 @@ function updateTime() {
   });
 }
 
-// Initial update
+// Update every second
 updateTime();
+setInterval(updateTime, 1000);
