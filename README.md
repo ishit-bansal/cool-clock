@@ -106,4 +106,6 @@ cool-clock/
 └── Various icons   # Favicon and app icons
 ```
 
-This project demonstrates a creative intersection of analog and digital timekeeping, where traditional clock hands are repurposed as pixels to form larger numeric displays.
+## License
+
+MIT
